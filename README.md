@@ -104,15 +104,17 @@ conda activate cwl_env
 cwltool --version            # <= check if it works, other documentation seems to call this cwl-runner...
 ```
 
-</details>
+
 
 ## 2017 - Explore Nextflow
 
 ... copy from other repo...
 
+</details>
+
 # Comparison - minimal example
 
-Recreate nextflow baton example here.
+We created a minimal nextflow pipeline example early in 2020. This will be modified fof snakemake and CWL. 
 
 We define 5 processes (nextflow) or rules (snakemake) that pass a text file from Amy to Eve. 
 
@@ -123,7 +125,7 @@ Amy -> Bob -> Cathy -> Dave -> Eve
 ----
 
 ### Nextflow dsl1
-<!--e<details><summary>Nextflow version dsl=1 - DONE</summary> -->
+
 
 Copied from [https://github.com/j23414/desc_workflows](https://github.com/j23414/desc_workflows)
 
