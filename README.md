@@ -1,4 +1,15 @@
-# test_snakemake
+# Workflow languages
+
+Recently, there has been an ascension of workflow languages to create reproducible, cloud computing agnostic, parallizable, and provenence tracked pipelines. 
+
+* Köster, J. and Rahmann, S., 2012. [Snakemake—a scalable bioinformatics workflow engine](https://academic.oup.com/bioinformatics/article/28/19/2520/290322?login=true). Bioinformatics, 28(19), pp.2520-2522.
+* Amstutz, P., Tijanić, N., Soiland-Reyes, S., Kern, J., Stojanovic, L., Pierce, T., Chilton, J., Mikheev, M., Lampa, S., Ménager, H. and Frazer, S., 2015, July. [Portable workflow and tool descriptions with the CWL](https://www.research.manchester.ac.uk/portal/en/publications/portable-workflow-and-tool-descriptions-with-the-cwl(f71e169b-8724-4580-86d6-e621077d8c74).html). In Bioinformatics Open Source Conference.
+* Amstutz, P., Crusoe, M.R., Tijanić, N., Chapman, B., Chilton, J., Heuer, M., Kartashov, A., Leehr, D., Ménager, H., Nedeljkovich, M. and Scales, M., 2016. [Common workflow language, v1.0.](https://www.research.manchester.ac.uk/portal/en/publications/common-workflow-language-v10(741919f5-d0ab-4557-9763-b811e911423b)/export.html#export)
+* Di Tommaso, P., Chatzou, M., Floden, E.W., Barja, P.P., Palumbo, E. and Notredame, C., 2017. [Nextflow enables reproducible computational workflows](https://www.nature.com/articles/nbt.3820). Nature biotechnology, 35(4), pp.316-319.
+
+Here we aim to explore, compare, and contrast several workflow languages for our internal workflow development. There are several academic papers that explore these workflow languages in certain domains, especially relating to bioinformatic analysis.
+
+## 2012 -  Explore Snakemake
 
 Snakemake is a python program and can be installed via miniconda using the provided `environment.yml` file.
 
