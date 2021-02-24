@@ -70,7 +70,47 @@ Finished job 0.
 Complete log: /Users/jenchang/Desktop/2021-02-03_Snakemake/test_snakemake/.snakemake/log/2021-02-03T174958.315655.snakemake.log
 ```
 
-## Compare Nextflow & Snakemake
+## 2015 - Explore CWL (Common Workflow Language)
+
+<details><summary>Still in development </summary>
+	
+* install via miniconda (based on [github: cwl](https://github.com/common-workflow-language/cwltool)).
+
+[cwl_env.yml](cwl_env.yml)
+
+```
+name: cwl_env
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - python=3.8
+  - cwltool
+```
+
+* run 
+
+```
+conda env create -f cwl_env.yml
+```
+
+CWL needs two files, a cwl and a process file... in progress
+
+* [CWL Manual]()
+
+```
+conda activate cwl_env
+cwltool --version            # <= check if it works, other documentation seems to call this cwl-runner...
+```
+
+</details>
+
+## 2017 - Explore Nextflow
+
+... copy from other repo...
+
+# Comparison - minimal example
 
 Recreate nextflow baton example here.
 
@@ -82,7 +122,7 @@ Amy -> Bob -> Cathy -> Dave -> Eve
 
 ----
 
-### (1 of 2) Nextflow dsl1
+### Nextflow dsl1
 <!--e<details><summary>Nextflow version dsl=1 - DONE</summary> -->
 
 Copied from [https://github.com/j23414/desc_workflows](https://github.com/j23414/desc_workflows)
@@ -473,34 +513,4 @@ Amy passes baton
 
 ```
 
-## CWL - common workflow language
 
-* install via miniconda (based on [github: cwl](https://github.com/common-workflow-language/cwltool)).
-
-[cwl_env.yml](cwl_env.yml)
-
-```
-name: cwl_env
-channels:
-  - conda-forge
-  - bioconda
-  - defaults
-dependencies:
-  - python=3.8
-  - cwltool
-```
-
-* run 
-
-```
-conda env create -f cwl_env.yml
-```
-
-CWL needs two files, a cwl and a process file... in progress
-
-* [CWL Manual]()
-
-```
-conda activate cwl_env
-cwltool --version            # <= check if it works, other documentation seems to call this cwl-runner...
-```
