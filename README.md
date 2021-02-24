@@ -338,7 +338,13 @@ less Eve_baton.txt
 #> Eve passes baton
 ```
 
-Maybe there's a similar way to print out a timeline in Snakemake?
+Maybe there's a similar way to print out a timeline in Snakemake? Ah, found it.
+
+```
+snakemake --dag Eve_baton.txt --snakefile pass_baton.txt | dot -Tpng > dag.png
+```
+
+![](dag.png)
 
 ----
  
@@ -454,4 +460,36 @@ Amy passes baton
 ; Dave passes baton
 ; Eve passes baton
 
+```
+
+## CWL - common workflow language
+
+* install via miniconda (based on [github: cwl](https://github.com/common-workflow-language/cwltool)).
+
+[cwl_env.yml](cwl_env.yml)
+
+```
+name: cwl_env
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - python=3.8
+  - cwltool
+```
+
+* run 
+
+```
+conda env create -f cwl_env.yml
+```
+
+CWL needs two files, a cwl and a process file... in progress
+
+* [CWL Manual]()
+
+```
+conda activate cwl_env
+cwltool --version            # <= check if it works, other documentation seems to call this cwl-runner...
 ```
