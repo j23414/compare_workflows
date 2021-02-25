@@ -133,6 +133,8 @@ Copied from [https://github.com/j23414/desc_workflows](https://github.com/j23414
 Instead of worrying about installing a long running program, we’ll
 simulate it using the `sleep 5` command (wait 5 seconds).
 
+Create a textfile `pass_baton.nf`, the `nf` extention indicates a nextflow script.
+
 ```
 
     #! /usr/bin/env nextflow
@@ -268,7 +270,7 @@ It will also generate a plot:
 
 ### (2 of 2) Snakemake version
 
-<b>pass_baton.txt</b>
+<b>snakemake</b> <- best practice, ah how do deal wth multiple snakemake pipelines in one folder?
 
 ```
 rule all:
@@ -302,7 +304,7 @@ rule Amy:
 Run it below:
 
 ```
-snakemake --snakefile pass_baton.txt -j1
+snakemake --snakefile snakemake -j1
 Building DAG of jobs...
 Using shell: /bin/bash
 Provided cores: 1 (use --cores to define parallelism)
@@ -394,10 +396,15 @@ less Eve_baton.txt
 Maybe there's a similar way to print out a timeline in Snakemake? Ah, found it.
 
 ```
-snakemake --dag Eve_baton.txt --snakefile pass_baton.txt | dot -Tpng > dag.png
+snakemake --dag Eve_baton.txt --snakefile snakemake | dot -Tpng > dag.png
 ```
 
 ![](dag.png)
+
+[ ] Urmi suggested exploring snakemake html reports: 
+
+  * Manual - [https://snakemake.readthedocs.io/en/stable/snakefiles/reporting.html](https://snakemake.readthedocs.io/en/stable/snakefiles/reporting.html)
+  * Example - [https://koesterlab.github.io/resources/report.html](https://koesterlab.github.io/resources/report.html)
 
 ----
  
