@@ -137,129 +137,129 @@ Create a textfile `pass_baton.nf`, the `nf` extention indicates a nextflow scrip
 
 ```
 
-    #! /usr/bin/env nextflow
+#! /usr/bin/env nextflow
 
-    /**********************************
-     Create a chain of long running processes
-     This basically simulates trinity/canu/whatever pipeline
-     **********************************/
+/**********************************
+ Create a chain of long running processes
+ This basically simulates trinity/canu/whatever pipeline
+ **********************************/
 
 
-    println "\nPipeline = Amy -> Bob -> Cathy -> Dave -> Eve"
-    println " where each person runs 5 seconds to pass the baton to next person\n"
+println "\nPipeline = Amy -> Bob -> Cathy -> Dave -> Eve"
+println " where each person runs 5 seconds to pass the baton to next person\n"
 
-    process Amy {
-      output: stdout Amy_out
+process Amy {
+  output: stdout Amy_out
 
-      script:
-      """
-      #! /usr/bin/env bash
-      sleep 5                    # <= pause for a few seconds
-      echo "Amy passes baton"
-      """
-    }
+  script:
+  """
+  #! /usr/bin/env bash
+  sleep 5                    # <= pause for a few seconds
+  echo "Amy passes baton"
+  """
+}
 
-    process Bob {
-      input: val baton_in from Amy_out
-        
-      output: stdout Bob_out
+process Bob {
+  input: val baton_in from Amy_out
+    
+  output: stdout Bob_out
 
-      script:
-      """
-      #! /usr/bin/env bash
-      sleep 5                    # <= pause for a few seconds
-      echo "$baton_in; Bob passes baton"
-      """
-    }
+  script:
+  """
+  #! /usr/bin/env bash
+  sleep 5                    # <= pause for a few seconds
+  echo "$baton_in; Bob passes baton"
+  """
+}
 
-    process Cathy {
-      input: val baton_in from Bob_out
-        
-      output: stdout Cathy_out
+process Cathy {
+  input: val baton_in from Bob_out
+    
+  output: stdout Cathy_out
 
-      script:
-      """
-      #! /usr/bin/env bash
-      sleep 5                    # <= pause for a few seconds
-      echo "$baton_in; Cathy passes baton"
-      """
-    }
+  script:
+  """
+  #! /usr/bin/env bash
+  sleep 5                    # <= pause for a few seconds
+  echo "$baton_in; Cathy passes baton"
+  """
+}
 
-    process Dave {
-      input: val baton_in from Cathy_out
-        
-      output: stdout Dave_out
+process Dave {
+  input: val baton_in from Cathy_out
+    
+  output: stdout Dave_out
 
-      script:
-      """
-      #! /usr/bin/env bash
-      sleep 5                    # <= pause for a few seconds
-      echo "$baton_in; Dave passes baton"
-      """
-    }
+  script:
+  """
+  #! /usr/bin/env bash
+  sleep 5                    # <= pause for a few seconds
+  echo "$baton_in; Dave passes baton"
+  """
+}
 
-    process Eve {
-      input: val baton_in from Dave_out
-        
-      output: stdout Eve_out
+process Eve {
+  input: val baton_in from Dave_out
+    
+  output: stdout Eve_out
 
-      script:
-      """
-      #! /usr/bin/env bash
-      sleep 5                    # <= pause for a few seconds
-      echo "$baton_in; Eve passes baton"
-      """
-    }
+  script:
+  """
+  #! /usr/bin/env bash
+  sleep 5                    # <= pause for a few seconds
+  echo "$baton_in; Eve passes baton"
+  """
+}
 
-    println Eve_out.view { it.trim() }
+println Eve_out.view { it.trim() }
 ```
 
 Which looks nice in bash… as it prints progress
 
 ```
-    N E X T F L O W  ~  version 20.04.1
-    Launching `code/script06.nf` [crazy_mclean] - revision: c6a509673f
+N E X T F L O W  ~  version 20.04.1
+Launching `code/script06.nf` [crazy_mclean] - revision: c6a509673f
 
-    Pipeline = Amy -> Bob -> Cathy -> Dave -> Eve
-     where each person runs 5 seconds to pass the baton to next person
+Pipeline = Amy -> Bob -> Cathy -> Dave -> Eve
+ where each person runs 5 seconds to pass the baton to next person
 
-    DataflowVariable(value=null)
-    executor >  local (2)
-    [ee/41b22c] process > Amy   [100%] 1 of 1 ✔
-    [cf/db02ae] process > Bob   [  0%] 0 of 1
-    [-        ] process > Cathy -
-    [-        ] process > Dave  -
-    [-        ] process > Eve   -
+DataflowVariable(value=null)
+executor >  local (2)
+[ee/41b22c] process > Amy   [100%] 1 of 1 ✔
+[cf/db02ae] process > Bob   [  0%] 0 of 1
+[-        ] process > Cathy -
+[-        ] process > Dave  -
+[-        ] process > Eve   -
 ```
 
 Eventually looks like the following when finished:
 
 ```
-    nextflow run script06.nf
-    N E X T F L O W  ~  version 20.04.1
-    Launching `code/script06.nf` [crazy_mclean] - revision: c6a509673f
+nextflow run script06.nf
+N E X T F L O W  ~  version 20.04.1
+Launching `code/script06.nf` [crazy_mclean] - revision: c6a509673f
 
-    Pipeline = Amy -> Bob -> Cathy -> Dave -> Eve
-     where each person runs 5 seconds to pass the baton to next person
+Pipeline = Amy -> Bob -> Cathy -> Dave -> Eve
+ where each person runs 5 seconds to pass the baton to next person
 
-    DataflowVariable(value=null)
-    executor >  local (5)
-    [ee/41b22c] process > Amy   [100%] 1 of 1 ✔
-    [cf/db02ae] process > Bob   [100%] 1 of 1 ✔
-    [b0/cccd94] process > Cathy [100%] 1 of 1 ✔
-    [9f/a652c6] process > Dave  [100%] 1 of 1 ✔
-    [ca/39a72a] process > Eve   [100%] 1 of 1 ✔
-    Amy passes baton
-    ; Bob passes baton
-    ; Cathy passes baton
-    ; Dave passes baton
-    ; Eve passes baton
+DataflowVariable(value=null)
+executor >  local (5)
+[ee/41b22c] process > Amy   [100%] 1 of 1 ✔
+[cf/db02ae] process > Bob   [100%] 1 of 1 ✔
+[b0/cccd94] process > Cathy [100%] 1 of 1 ✔
+[9f/a652c6] process > Dave  [100%] 1 of 1 ✔
+[ca/39a72a] process > Eve   [100%] 1 of 1 ✔
+Amy passes baton
+; Bob passes baton
+; Cathy passes baton
+; Dave passes baton
+; Eve passes baton
 ```
 
 And if you run it with the html reports turned on:
 
 ```
-    nextflow run script06.nf -with-timeline timeline.html
+nextflow run script06.nf -with-timeline timeline.html
 ```
 
 It will also generate a plot:
@@ -270,7 +270,7 @@ It will also generate a plot:
 
 ### (2 of 2) Snakemake version
 
-<b>snakemake</b> <- best practice, ah how do deal wth multiple snakemake pipelines in one folder?
+<b>Snakefile</b> <- best practice, ah how do deal wth multiple snakemake pipelines in one folder?
 
 ```
 rule all:
@@ -279,32 +279,32 @@ rule all:
 rule Eve:
   input: "Dave_baton.txt"
   output: "Eve_baton.txt"
-  shell: "cat {input} > {output}; echo 'Eve passes baton' >> {output};"
+  shell: "sleep 5; cat {input} > {output}; echo 'Eve passes baton' >> {output};"
 
 rule Dave:
   input: "Cathy_baton.txt"
   output: "Dave_baton.txt"
-  shell: "cat {input} > {output}; echo 'Dave passes baton' >> {output};"
+  shell: "sleep 5; cat {input} > {output}; echo 'Dave passes baton' >> {output};"
 
 rule Cathy:
   input: "Bob_baton.txt"
   output: "Cathy_baton.txt"
-  shell: "cat {input} > {output}; echo 'Cathy passes baton' >> {output};"
+  shell: "sleep 5; cat {input} > {output}; echo 'Cathy passes baton' >> {output};"
 
 rule Bob:
   input: "Amy_baton.txt"
   output: "Bob_baton.txt"
-  shell: "cat {input} > {output}; echo 'Bob passes baton' >> {output};"
+  shell: "sleep 5; cat {input} > {output}; echo 'Bob passes baton' >> {output};"
 
 rule Amy:
   output: "Amy_baton.txt"
-  shell: "echo 'Amy passes baton' > {output}"
+  shell: "sleep 5; echo 'Amy passes baton' > {output}"
 ```
 
 Run it below:
 
 ```
-snakemake --snakefile snakemake -j1
+snakemake -j1        # <= will automatically look for a snakefile
 Building DAG of jobs...
 Using shell: /bin/bash
 Provided cores: 1 (use --cores to define parallelism)
@@ -405,6 +405,12 @@ snakemake --dag Eve_baton.txt --snakefile snakemake | dot -Tpng > dag.png
 
   * Manual - [https://snakemake.readthedocs.io/en/stable/snakefiles/reporting.html](https://snakemake.readthedocs.io/en/stable/snakefiles/reporting.html)
   * Example - [https://koesterlab.github.io/resources/report.html](https://koesterlab.github.io/resources/report.html)
+
+```
+snakemake --report report.html
+```
+
+[View report.html](http://j23414.github.io/test_snakemake/report.html)
 
 ----
  
