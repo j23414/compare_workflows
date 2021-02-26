@@ -6,6 +6,7 @@ Recently, there has been an ascension of workflow languages to create reproducib
 * Amstutz, P., Tijanić, N., Soiland-Reyes, S., Kern, J., Stojanovic, L., Pierce, T., Chilton, J., Mikheev, M., Lampa, S., Ménager, H. and Frazer, S., 2015, July. [Portable workflow and tool descriptions with the CWL](https://www.research.manchester.ac.uk/portal/en/publications/portable-workflow-and-tool-descriptions-with-the-cwl(f71e169b-8724-4580-86d6-e621077d8c74).html). In Bioinformatics Open Source Conference.
 * Amstutz, P., Crusoe, M.R., Tijanić, N., Chapman, B., Chilton, J., Heuer, M., Kartashov, A., Leehr, D., Ménager, H., Nedeljkovich, M. and Scales, M., 2016. [Common workflow language, v1.0.](https://www.research.manchester.ac.uk/portal/en/publications/common-workflow-language-v10(741919f5-d0ab-4557-9763-b811e911423b)/export.html#export)
 * Di Tommaso, P., Chatzou, M., Floden, E.W., Barja, P.P., Palumbo, E. and Notredame, C., 2017. [Nextflow enables reproducible computational workflows](https://www.nature.com/articles/nbt.3820). Nature biotechnology, 35(4), pp.316-319.
+* Michael Kotliar, Andrey V Kartashov, Artem Barski, [CWL-Airflow: a lightweight pipeline manager supporting Common Workflow Language](https://doi.org/10.1093/gigascience/giz084), GigaScience, Volume 8, Issue 7, July 2019, giz084, https://doi.org/10.1093/gigascience/giz084
 
 Here we aim to explore, compare, and contrast several workflow languages for our internal workflow development. There are several academic papers that explore these workflow languages in certain domains, especially relating to bioinformatic analysis.
 
@@ -97,7 +98,7 @@ conda env create -f cwl_env.yml
 
 CWL needs two files, a cwl and a process file... in progress
 
-* [CWL Manual]()
+* [CWL Manual](https://www.commonwl.org/user_guide/)
 
 ```
 conda activate cwl_env
