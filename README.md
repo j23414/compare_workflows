@@ -2,6 +2,7 @@
 
 Recently, there has been an ascension of workflow languages to create reproducible, cloud computing agnostic, parallizable, and provenence tracked pipelines. 
 
+* Stallman, R.M. and McGrath, R., 1991. [GNU Make-A Program for Directing Recompilation.](https://www.gnu.org/software/make/) note: appeared in 1976, this links to the GNU Make manual.
 * Köster, J. and Rahmann, S., 2012. [Snakemake—a scalable bioinformatics workflow engine](https://academic.oup.com/bioinformatics/article/28/19/2520/290322?login=true). Bioinformatics, 28(19), pp.2520-2522.
 * Amstutz, P., Tijanić, N., Soiland-Reyes, S., Kern, J., Stojanovic, L., Pierce, T., Chilton, J., Mikheev, M., Lampa, S., Ménager, H. and Frazer, S., 2015, July. [Portable workflow and tool descriptions with the CWL](https://www.research.manchester.ac.uk/portal/en/publications/portable-workflow-and-tool-descriptions-with-the-cwl(f71e169b-8724-4580-86d6-e621077d8c74).html). In Bioinformatics Open Source Conference.
 * Amstutz, P., Crusoe, M.R., Tijanić, N., Chapman, B., Chilton, J., Heuer, M., Kartashov, A., Leehr, D., Ménager, H., Nedeljkovich, M. and Scales, M., 2016. [Common workflow language, v1.0.](https://www.research.manchester.ac.uk/portal/en/publications/common-workflow-language-v10(741919f5-d0ab-4557-9763-b811e911423b)/export.html#export)
@@ -10,13 +11,31 @@ Recently, there has been an ascension of workflow languages to create reproducib
 
 Here we aim to explore, compare, and contrast several workflow languages for our internal workflow development. There are several academic papers that explore these workflow languages in certain domains, especially relating to bioinformatic analysis.
 
+## 1970's Makefiles
+
+A Basic makefile
+
+```
+all:
+  echo "hello world"
+```
+
+From commandline
+
+```
+make
+
+#> echo "Hello World"
+#> Hello World
+```
+
 ## 2012 -  Explore Snakemake
 
 Snakemake is a python program and can be installed via miniconda using the provided `environment.yml` file.
 
 ```
 conda env create -f environment.yml
-conda activate snakeskin
+conda activate workflow_env
 ```
 
 Create `snake_say_hi.txt`
@@ -527,6 +546,57 @@ Amy passes baton
 ; Dave passes baton
 ; Eve passes baton
 
+```
+
+## 1970's Makefile Version
+
+**Makefile**
+
+```
+all: Eve_baton.txt
+        cat Eve_baton.txt
+
+Eve_baton.txt: Dave_baton.txt
+        cat Dave_baton.txt > Eve_baton.txt
+        echo "Eve passes the baton" >> Eve_baton.txt
+
+Dave_baton.txt: Cathy_baton.txt
+        cat Cathy_baton.txt > Dave_baton.txt
+        echo "Dave passes the baton" >> Dave_baton.txt
+
+Cathy_baton.txt: Bob_baton.txt
+        cat Bob_baton.txt > Cathy_baton.txt
+        echo "Cathy passes the baton" >> Cathy_baton.txt
+
+Bob_baton.txt: Amy_baton.txt
+        cat Amy_baton.txt > Bob_baton.txt
+        echo "Bob passes the baton" >> Bob_baton.txt
+
+Amy_baton.txt:
+        echo "Amy passes the baton" > Amy_baton.txt
+```
+
+In bash, run "make"
+
+
+```
+make
+
+#> echo "Amy passes the baton" > Amy_baton.txt
+#> cat Amy_baton.txt > Bob_baton.txt
+#> echo "Bob passes the baton" >> Bob_baton.txt
+#> cat Bob_baton.txt > Cathy_baton.txt
+#> echo "Cathy passes the baton" >> Cathy_baton.txt
+#> cat Cathy_baton.txt > Dave_baton.txt
+#> echo "Dave passes the baton" >> Dave_baton.txt
+#> cat Dave_baton.txt > Eve_baton.txt
+#> echo "Eve passes the baton" >> Eve_baton.txt
+#> cat Eve_baton.txt
+#> Amy passes the baton
+#> Bob passes the baton
+#> Cathy passes the baton
+#> Dave passes the baton
+#> Eve passes the baton
 ```
 
 

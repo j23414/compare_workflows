@@ -1,4 +1,4 @@
-name: snakeskin
+name: workflow_env
 channels:
   - conda-forge
   - bioconda
@@ -6,4 +6,7 @@ channels:
 dependencies:
   - python=3.8
   - snakemake
+  - cwltool
+  - nextflow
+
 
