@@ -430,7 +430,7 @@ snakemake --dag Eve_baton.txt --snakefile snakemake | dot -Tpng > dag.png
 snakemake --report report.html
 ```
 
-[View report.html](http://j23414.github.io/test_snakemake/report.html)
+[View report.html](http://j23414.github.io/compare_workflows/report.html)
 
 ----
  
