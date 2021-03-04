@@ -58,4 +58,10 @@ Bonjour world!
 WARN: Task runtime metrics are not reported when using macOS without a container engine
 ```
 
+Looks neat so far
+
+![](Tower.png)
+
+Definitely interested in the core/task/memory efficiency dashboard.
+
 [ ] Test this on HPC Slurm system
