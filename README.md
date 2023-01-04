@@ -8,6 +8,9 @@ Recently, there has been an ascension of workflow languages to create reproducib
 * Amstutz, P., Crusoe, M.R., Tijanić, N., Chapman, B., Chilton, J., Heuer, M., Kartashov, A., Leehr, D., Ménager, H., Nedeljkovich, M. and Scales, M., 2016. [Common workflow language, v1.0.](https://www.research.manchester.ac.uk/portal/en/publications/common-workflow-language-v10(741919f5-d0ab-4557-9763-b811e911423b)/export.html#export)
 * Di Tommaso, P., Chatzou, M., Floden, E.W., Barja, P.P., Palumbo, E. and Notredame, C., 2017. [Nextflow enables reproducible computational workflows](https://www.nature.com/articles/nbt.3820). Nature biotechnology, 35(4), pp.316-319.
 * Michael Kotliar, Andrey V Kartashov, Artem Barski, [CWL-Airflow: a lightweight pipeline manager supporting Common Workflow Language](https://doi.org/10.1093/gigascience/giz084), GigaScience, Volume 8, Issue 7, July 2019, giz084, https://doi.org/10.1093/gigascience/giz084
+* Yuen, D., Cabansay, L., Duncan, A., Luu, G., Hogue, G., Overbeck, C., Perez, N., Shands, W., Steinberg, D., Reid, C. and Olunwa, N., 2021. [The Dockstore: enhancing a community platform for sharing reproducible and accessible computational protocols.](https://doi.org/10.1093/nar/gkab346) Nucleic acids research, 49(W1), pp.W624-W632.
+* Gorzalski, A.J., Boyles, C., Sepcic, V., Verma, S., Sevinsky, J., Libuit, K., Van Hooser, S. and Pandori, M.W., 2022. [Rapid repeat infection of SARS-CoV-2 by two highly distinct delta-lineage viruses.](https://doi.org/10.1016/j.diagmicrobio.2022.115747) Diagnostic Microbiology and Infectious Disease, 104(1), p.115747.
+
 
 Here we aim to explore, compare, and contrast several workflow languages for our internal workflow development. There are several academic papers that explore these workflow languages in certain domains, especially relating to bioinformatic analysis.
 
