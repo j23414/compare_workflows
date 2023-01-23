@@ -1,10 +1,10 @@
 version 1.0
 
 workflow All_Workflow {
-  call Amy {}
+  call Alice {}
   call Bob {
     input:
-      infile=Amy.outfile
+      infile=Alice.outfile
   }
   call Cathy {
     input:
@@ -24,14 +24,14 @@ workflow All_Workflow {
   }
 }
 
-task Amy {
+task Alice {
   command <<<
     #! /usr/bin/env bash
     sleep 5
-    echo 'Amy passes baton' > Amy_baton.txt
+    echo 'Alice passes baton' > Alice_baton.txt
   >>>
   output {
-    File outfile="Amy_baton.txt"
+    File outfile="Alice_baton.txt"
   }
   runtime{
     docker: 'ubuntu'

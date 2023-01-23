@@ -17,13 +17,13 @@ rule Cathy:
   shell: "sleep 5; cat {input} > {output}; echo 'Cathy passes baton' >> {output};"
 
 rule Bob:
-  input: "Amy_baton.txt"
+  input: "Alice_baton.txt"
   output: "Bob_baton.txt"
   shell: "sleep 5; cat {input} > {output}; echo 'Bob passes baton' >> {output};"
 
-rule Amy:
-  output: "Amy_baton.txt"
-  shell: "sleep 5; echo 'Amy passes baton' > {output}"
+rule Alice:
+  output: "Alice_baton.txt"
+  shell: "sleep 5; echo 'Alice passes baton' > {output}"
 
 
 

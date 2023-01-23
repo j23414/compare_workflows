@@ -9,17 +9,17 @@ nextflow.enable.dsl=2
  **********************************/
 
 
-println "\nPipeline = Amy -> Bob -> Cathy -> Dave -> Eve"
+println "\nPipeline = Alice -> Bob -> Cathy -> Dave -> Eve"
 println " where each person runs 5 seconds to pass the baton to next person\n"
 
-process Amy {
+process Alice {
   output: stdout
 
   script:
   """
   #! /usr/bin/env bash
   sleep 5                    # <= pause for a few seconds
-  echo "Amy passes baton"
+  echo "Alice passes baton"
   """
 }
 
@@ -77,5 +77,5 @@ process Eve {
 
 /* === Main workflow */
 workflow {
-  Amy | Bob | Cathy | Dave | Eve | view
+  Alice | Bob | Cathy | Dave | Eve | view
 }
