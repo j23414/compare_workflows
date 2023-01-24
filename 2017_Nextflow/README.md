@@ -4,73 +4,95 @@
 nextflow run next_baton.nf
 
 N E X T F L O W  ~  version 22.10.0
-Launching `next_baton.nf` [mighty_mercator] DSL2 - revision: 75a5d6e02f
+Launching `next_baton.nf` [happy_roentgen] DSL2 - revision: 4e1f6f8ca7
 
 Pipeline = Alice -> Bob -> Cathy -> Dave -> Eve
  where each person runs 5 seconds to pass the baton to next person
 
 executor >  local (5)
-[e8/b9477e] process > Alice [100%] 1 of 1 ✔
-[db/7cfdb9] process > Bob   [100%] 1 of 1 ✔
-[28/9d7321] process > Cathy [100%] 1 of 1 ✔
-[98/a74a9d] process > Dave  [100%] 1 of 1 ✔
-[f1/4841a3] process > Eve   [100%] 1 of 1 ✔
-Alice passes baton
-; Bob passes baton
-; Cathy passes baton
-; Dave passes baton
-; Eve passes baton
+[a0/6d6277] process > Alice [100%] 1 of 1 ✔
+[ed/a34e08] process > Bob   [100%] 1 of 1 ✔
+[c1/dbc37a] process > Cathy [100%] 1 of 1 ✔
+[1b/415d18] process > Dave  [100%] 1 of 1 ✔
+[8d/d951c3] process > Eve   [100%] 1 of 1 ✔
+/Users/jchang3/github/j23414/compare_workflows/2017_Nextflow/work/8d/d951c35cc8ebede31c2f5ae4c7aec5/Eve_baton.txt
 ```
 
 ## View work directory
 
 ```
+tree -a work 
+
 work
-├── 28
-│   └── 9d7321f3dac4a6433bcd1982c6186d
+├── 1b
+│   └── 415d18adab625f579c622db59e6184
 │       ├── .command.begin
 │       ├── .command.err
 │       ├── .command.log
 │       ├── .command.out
 │       ├── .command.run
 │       ├── .command.sh
-│       └── .exitcode
-├── 98
-│   └── a74a9d74498be066fe31412784a446
+│       ├── .exitcode
+│       ├── Cathy_baton.txt -> /Users/jchang3/github/j23414/compare_workflows/2017_Nextflow/work/c1/dbc37a7011a9b2c3120b1f788e1375/Cathy_baton.txt
+│       └── Dave_baton.txt
+├── 8d
+│   └── d951c35cc8ebede31c2f5ae4c7aec5
 │       ├── .command.begin
 │       ├── .command.err
 │       ├── .command.log
 │       ├── .command.out
 │       ├── .command.run
 │       ├── .command.sh
-│       └── .exitcode
-├── db
-│   └── 7cfdb9f442b01e43a856b935908546
+│       ├── .exitcode
+│       ├── Dave_baton.txt -> /Users/jchang3/github/j23414/compare_workflows/2017_Nextflow/work/1b/415d18adab625f579c622db59e6184/Dave_baton.txt
+│       └── Eve_baton.txt
+├── a0
+│   └── 6d627760375285d1fb919c2213567c
 │       ├── .command.begin
 │       ├── .command.err
 │       ├── .command.log
 │       ├── .command.out
 │       ├── .command.run
 │       ├── .command.sh
-│       └── .exitcode
-├── e8
-│   └── b9477e9a4651131e05abb717e9800c
+│       ├── .exitcode
+│       └── Alice_baton.txt
+├── c1
+│   └── dbc37a7011a9b2c3120b1f788e1375
 │       ├── .command.begin
 │       ├── .command.err
 │       ├── .command.log
 │       ├── .command.out
 │       ├── .command.run
 │       ├── .command.sh
-│       └── .exitcode
-└── f1
-    └── 4841a33f97e34b43d6db78985c3bf8
+│       ├── .exitcode
+│       ├── Bob_baton.txt -> /Users/jchang3/github/j23414/compare_workflows/2017_Nextflow/work/ed/a34e08e4ecf606e7730ba5518dd62c/Bob_baton.txt
+│       └── Cathy_baton.txt
+└── ed
+    └── a34e08e4ecf606e7730ba5518dd62c
         ├── .command.begin
         ├── .command.err
         ├── .command.log
         ├── .command.out
         ├── .command.run
         ├── .command.sh
-        └── .exitcode
+        ├── .exitcode
+        ├── Alice_baton.txt -> /Users/jchang3/github/j23414/compare_workflows/2017_Nextflow/work/a0/6d627760375285d1fb919c2213567c/Alice_baton.txt
+        └── Bob_baton.txt
+
+11 directories, 44 files
+```
+
+PublishDir
+
+```
+Tree results 
+
+results
+├── Alice_baton.txt -> /Users/jchang3/github/j23414/compare_workflows/2017_Nextflow/work/a0/6d627760375285d1fb919c2213567c/Alice_baton.txt
+├── Bob_baton.txt -> /Users/jchang3/github/j23414/compare_workflows/2017_Nextflow/work/ed/a34e08e4ecf606e7730ba5518dd62c/Bob_baton.txt
+├── Cathy_baton.txt -> /Users/jchang3/github/j23414/compare_workflows/2017_Nextflow/work/c1/dbc37a7011a9b2c3120b1f788e1375/Cathy_baton.txt
+├── Dave_baton.txt -> /Users/jchang3/github/j23414/compare_workflows/2017_Nextflow/work/1b/415d18adab625f579c622db59e6184/Dave_baton.txt
+└── Eve_baton.txt -> /Users/jchang3/github/j23414/compare_workflows/2017_Nextflow/work/8d/d951c35cc8ebede31c2f5ae4c7aec5/Eve_baton.txt
 ```
 
 Nextflow Tower
