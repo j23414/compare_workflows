@@ -95,7 +95,7 @@ results
 └── Eve_baton.txt -> /Users/jchang3/github/j23414/compare_workflows/2017_Nextflow/work/8d/d951c35cc8ebede31c2f5ae4c7aec5/Eve_baton.txt
 ```
 
-Nextflow Tower
+# Nextflow Tower
 
 1. Create a free account (or link your github) at http://tower.nf
 2. Create a token
